@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2024-11-16</title>
+    <link rel="stylesheet" type="text/css" media="screen and (max-device-width: 1240px)" href="css/index_pe.css" />
+    <link rel="stylesheet" type="text/css" media="screen and (min-device-width: 1240px)" href="css/index_pc.css" />
+    <link rel="stylesheet" href="font/iconfont.css"/>
+</head>
+<body class="old-body">
+    <div class="all-body">
+        <div class="ab-text-container">
+            <div class="atc-content">
+                点击开始
+            </div>
+        </div>
+        <a class="btn"></a>
+    </div>
+    <audio src="./music/continue.mp3" id="bgm"></audio>
+    <div class="next-div" id="next-div">
+        <span class="iconfont icon-yinle"></span>
+        <span class="iconfont icon-yinlezanting" style="display: none;"></span>
+        <div class="cake">
+            <img class="banner" src="./image/banner.png"/>
+            <div class="candle">
+                <div class="candle-wrapper" id="cw1">
+                    <img src="./image/2.png" id="candle2"/>
+                    <div class="cw-tuopan"></div>
+                    <div class="cw-zhuzi"></div>
+                    <div class="flame1"></div>
+                </div>
+                <div class="candle-wrapper" id="cw2">
+                    <img src="./image/1.png" id="candle1"/>
+                    <div class="cw-tuopan"></div>
+                    <div class="cw-zhuzi"></div>
+                    <div class="flame2"></div>
+                </div>
+                <script>
+                    let flame_flag1 = 0, flame_flag2 = 0;
+                    const cw1 = document.getElementById('cw1');
+                    const cw2 = document.getElementById('cw2');
+                    const flame1 = document.querySelector('.flame1');
+                    const flame2 = document.querySelector('.flame2');
+                    cw1.addEventListener('click', () => {
+                        flame1.style.display = 'block';
+                        flame_flag1 = 1;
+                        if( flame_flag2 ){
+                            slide_to_next();
+                        }
+                    });
+                    cw2.addEventListener('click', () => {
+                        flame2.style.display = 'block';
+                        flame_flag2 = 1;
+                        if(  flame_flag1 ){
+                            slide_to_next();
+                        }
+                    });
+                </script>
+            </div>
+            <div class="c-cream-top">
+                <div class="cct-cream1"></div>
+                <div class="cct-cream2"></div>
+            </div>
+            <div class="c-chocolate"></div>
+            <div class="c-cream"></div>
+            <div class="c-chocolate"></div>
+            <div class="c-cream"></div>
+            <div class="c-chocolate"></div>
+            <div class="c-table-top"></div>
+            <button class="btn">
+                点击蜡烛点亮
+                <span class="inner">
+                    <span class="blob"></span>
+                    <span class="blob"></span>
+                    <span class="blob"></span>
+                    <span class="blob"></span>
+                </span>
+            </button>
+            <script>
+                let yinle_flag = 0;
+            </script>
+        </div>
+    </div>
+    <script>
+        function sleep(time) {
+            return new Promise((resolve) => setTimeout(resolve, time));
+        }
+        const btn = document.querySelector('.btn');
+        const audio = document.querySelector('audio');
+        const allbody = document.querySelector('.all-body');
+        const nextdiv = document.getElementById('next-div');
+        const body = document.querySelector('body');
+        btn.addEventListener('click', async () => {
+            await sleep(1000);
+            audio.volume = 0.6;
+            audio.play();
+            btn.style.transform = 'scale(12)';
+            await sleep(1000);
+            body.classList.remove('old-body');
+            body.classList.add('new-body');
+            allbody.style.display = 'none';
+            nextdiv.style.display = 'flex';
+        });
+    </script>
+    <div class="card">
+        <span class="iconfont icon-yinle"></span>
+        <span class="iconfont icon-yinlezanting" style="display: none;"></span>
+        <div class="card-inner">
+            <div class="ci-line"><p class="cl-l">To Fei.</p></div>
+            <div class="ci-line"><p class="cl-l">展信安!</p></div>
+            <div class="ci-line"><p class="cl-l">“不确定，自己的形状，动不动就和世界碰撞</p></div>
+            <div class="ci-line"><p class="cl-l">那些伤，我终于为你，都一一抚平。”</p></div>
+            <div class="ci-line"><p class="cl-l">这是小凯翻唱过的《给15岁的自己》中的歌词，</p></div>
+            <div class="ci-line"><p class="cl-l">也送给你！</p></div>
+            <div class="ci-line"><p class="cl-l">勇敢踏出前进的脚步，迎接未来的你！</p></div>
+            <div class="ci-line"><p class="cl-l">生日快乐！</p></div>
+            <div class="ci-line"><p class="cl-r">2024.11.16</p></div>
+            <div class="ci-line"><p class="cl-r">严浩洋</p></div>
+        </div>
+    </div>
+    <script>
+        async function slide_to_next(){
+            console.log('slide');
+            const btn = document.querySelector('.btn');
+            await sleep(1000);
+            const yinle = document.querySelector('.icon-yinle');
+            const yinlezanting = document.querySelector('.icon-yinlezanting');
+            if( yinle.style.display != 'none' ){
+                yinle_flag = 1;
+            }
+            nextdiv.style.display = 'none';
+            const card = document.querySelector('.card');
+            card.style.display = 'flex';
+
+            const cip = document.querySelectorAll('.ci-line p');
+            for( let i = 0; i < cip.length; i++ ){
+                cip[i].style.animation = 'content-slide-in-ease 2s forwards';
+                cip[i].style.display = 'block';
+                await sleep(2000);
+            }
+        }
+    </script>
+    <script>
+        const play_icon = document.querySelectorAll('.icon-yinle');
+        const stop_icon = document.querySelectorAll('.icon-yinlezanting');
+        play_icon[0].addEventListener('click', () => {
+            audio.pause();
+            stop_icon[0].style.display = 'block';
+            play_icon[0].style.display = 'none';
+        });
+        play_icon[1].addEventListener('click', () => {
+            audio.pause();
+            stop_icon[1].style.display = 'block';
+            play_icon[1].style.display = 'none';
+        });
+        stop_icon[0].addEventListener('click', () => {
+            audio.play();
+            stop_icon[0].style.display = 'none';
+            play_icon[0].style.display = 'block';
+        });
+        stop_icon[1].addEventListener('click', () => {
+            audio.play();
+            stop_icon[1].style.display = 'none';
+            play_icon[1].style.display = 'block';
+        });
+    </script>
+</body>
+</html>

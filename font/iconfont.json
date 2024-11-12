@@ -1,0 +1,23 @@
+{
+  "id": "4742060",
+  "name": "zyf-birthday-2024",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "12708826",
+      "name": "音乐",
+      "font_class": "yinle",
+      "unicode": "e60d",
+      "unicode_decimal": 58893
+    },
+    {
+      "icon_id": "34617751",
+      "name": "音乐暂停",
+      "font_class": "yinlezanting",
+      "unicode": "e623",
+      "unicode_decimal": 58915
+    }
+  ]
+}
