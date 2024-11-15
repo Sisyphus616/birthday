@@ -22,7 +22,9 @@
         <span class="iconfont icon-yinle"></span>
         <span class="iconfont icon-yinlezanting" style="display: none;"></span>
         <div class="cake">
-            <img class="banner" src="./image/banner.png"/>
+            <div class="banner-wrapper">
+                <img class="banner" src="./image/banner.png"/>
+            </div>
             <div class="candle">
                 <div class="candle-wrapper" id="cw1">
                     <img src="./image/2.png" id="candle2"/>
@@ -101,6 +103,11 @@
             body.classList.add('new-body');
             allbody.style.display = 'none';
             nextdiv.style.display = 'flex';
+            const cake = document.querySelector('.cake');
+            cake.style.animation = 'cake-emerge 2s forwards';
+            await sleep(2000);
+            const banner = document.querySelector('.banner-wrapper');
+            banner.style.animation = 'banner-slide-in 3s forwards';
         });
     </script>
     <div class="card">

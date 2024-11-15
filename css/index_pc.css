@@ -61,7 +61,7 @@ html{
         background: rgb(0, 141, 255);
         color: #1a1a1a;
         font-size: 2rem;
-        transition: box-shadow 0.4s cubic-bezier(0.2, 0, 0.7, 1), transform 1s ease;
+        transition: box-shadow 0.4s cubic-bezier(0.2, 0, 0.7, 1), transform 3s ease;
     }
     
     .btn:hover {
@@ -156,6 +156,23 @@ html{
     }
 }
 
+@keyframes banner-slide-in{
+    from{
+        transform: translateY(0px);
+    }
+    to{
+        transform: translateY(250px);
+    }
+}
+@keyframes cake-emerge{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
 .cake{
     width: 600px;
     height: 600px;
@@ -165,9 +182,12 @@ html{
     justify-content: center;
     align-items: center;
     position: relative;
-    .banner{
+    .banner-wrapper{
+        display: flex;
+        justify-content: center;
         position: absolute;
-        top: -100px;
+        top: -350px;
+        /* transform: translateY(250px); */
     }
     .btn {
         position: relative;
